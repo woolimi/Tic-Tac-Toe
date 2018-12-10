@@ -4,10 +4,10 @@ body.appendChild(tb);
 let retryBtn = document.createElement('button');
 retryBtn.textContent = 'RETRY ?';
 retryBtn.addEventListener('click', function(){
-    boxes.forEach(function(val, idx1){
-        boxes[idx1].forEach(function(val, idx2){
-            boxes[idx1][idx2].textContent = '';
-            boxes[idx1][idx2].addEventListener('click', boxClick);
+    boxes.forEach(function(row){
+        row.forEach(function(val){
+            val.textContent = '';
+            val.addEventListener('click', boxClick);
         });
     });
     winner.textContent = '';
@@ -39,10 +39,13 @@ function boxClick(e){
         if(checkWin(turn)){
             //remove all eventListener
             removeEvents();
-            // 위너 메세지
+            // massage for winner
             winner.textContent = `Player ${turn} WIN !`
+            //initialize first player
+            turn = 'X';
+        } else{
+            turnChange(turn);
         }
-        turnChange(turn);
     } else {
         console.log('already clicked');
     }
