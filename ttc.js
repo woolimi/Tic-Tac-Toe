@@ -17,14 +17,16 @@ let winner = document.createElement('h1');
 body.appendChild(winner);
 
 let boxes = []; //make empty array to fill 3x3 boxes
+let rows = [];
 let turn = 'X';
 
 //make table elements
 for(let i=0; i<3;i++){
     let tr = document.createElement('tr');
-    tb.appendChild(tr);
     let row = [];
+    tb.appendChild(tr);
     boxes.push(row);
+    rows.push(tr);
     for(let j=0; j<3;j++){
         let td = document.createElement('td');
         td.addEventListener('click', boxClick);
@@ -35,6 +37,10 @@ for(let i=0; i<3;i++){
 
 function boxClick(e){
     if(e.target.textContent === ''){
+        let nbRow = rows.indexOf(e.target.parentNode);
+        let nbCol = boxes[nbRow].indexOf(e.target);
+        console.log(`row : ${nbRow}, col : ${nbCol}`);
+
         e.target.textContent = turn;
         if(checkWin(turn)){
             //remove all eventListener
