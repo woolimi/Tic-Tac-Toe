@@ -5,9 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tic-Tac-Toe</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+      table#table {
+        border-collapse: collapse;
+      }
+      td {
+          border: 1px solid black;
+          width: 60px;
+          height: 60px;
+          text-align: center;
+          font-size: 35px;
+      }
+    </style>
 </head>
 <body>
+    <table id="table">
+      <tbody id="tbody">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <h1 id="winner"></h1>
+    <button type="button" id="retryBtn">RETRY ?</button>
     <script src="ttc.js" charset="utf-8"></script>
 </body>
 </html>
